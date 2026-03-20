@@ -4,7 +4,40 @@
 
 `justune` 是一个运行在浏览器中的智能体运行时，用于本地代码和文件操作。它的规划逻辑在服务端执行，而工具操作则在用户的浏览器工作空间中运行——这样既能在不暴露用户文件的前提下测试客户端工具调用，又保证了数据安全。
 
-目前，应用通过本地包入口 `@lemmair/justune-runtime` 消费可复用的运行时接口，底层实现来自 [`packages/justune-runtime`](/root/projects/justune/packages/justune-runtime)。原有的 `lib/*` 路径已退化为薄兼容层，包源码成为唯一的实现来源。
+## 包说明
+
+本仓库包含两个包：
+
+| 包名 | 说明 |
+|---------|-------------|
+| `@lemmair/justune` | 完整的 Next.js 演示应用，包含 React 工作台界面、API 路由和会话管理。用于开发、本地测试或部署完整的 justune 体验。 |
+| `@lemmair/justune-runtime` | 无头运行时库，提供沙箱桥接、Web Worker 执行和工具接口。用于将 justune 的智能体执行能力嵌入到你自己的产品中，无需演示界面。 |
+
+### 开发
+
+本地开发完整的 justune 应用：
+
+```bash
+npm install
+npm run dev
+```
+
+打开 `http://localhost:3000`。
+
+### 生产集成
+
+将 justune 运行时嵌入到你的产品中：
+
+```bash
+npm install @lemmair/justune-runtime
+```
+
+运行时导出：
+- `JustuneRuntime` - 无头控制器，用于启动/运行/停止/导出流程
+- `JustuneBrowserSandbox` - 浏览器工具执行的沙箱实现
+- 工具、消息和运行时配置的类型定义
+
+详见 [集成指南](#集成指南) 了解如何嵌入运行时或扩展工具接口。
 
 ## 预览
 

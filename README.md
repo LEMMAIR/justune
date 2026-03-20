@@ -4,7 +4,40 @@
 
 `justune` is a browser-hosted agent runtime for local code and file work. It keeps planning on the server and runs tools inside the user's browser workspace, so you can test client-side tool calling without giving the server direct access to the user's files.
 
-The app now consumes its reusable runtime surface through the local package-style entry `@lemmair/justune-runtime`, backed by [`packages/justune-runtime`](/root/projects/justune/packages/justune-runtime). Legacy `lib/*` runtime paths now exist only as thin compatibility shims, so the package sources are the single implementation surface.
+## Packages
+
+This repository contains two packages:
+
+| Package | Description |
+|---------|-------------|
+| `@lemmair/justune` | The full Next.js demo application with React workbench UI, API routes, and session management. Use this for development, local testing, or deploying the complete justune experience. |
+| `@lemmair/justune-runtime` | The headless runtime library providing the sandbox bridge, Web Worker execution, and tool surface. Use this to embed justune's agent execution capabilities in your own product without the demo UI. |
+
+### Development
+
+For local development of the full justune application:
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+### Production Integration
+
+To embed justune's runtime in your own product, install the runtime package:
+
+```bash
+npm install @lemmair/justune-runtime
+```
+
+The runtime exports:
+- `JustuneRuntime` - Headless controller for boot/run/stop/export flows
+- `JustuneBrowserSandbox` - The sandbox implementation for browser tool execution
+- Type definitions for tools, messages, and runtime configuration
+
+See the [Integrate it](#integrate-it) section for details on embedding the runtime or extending the tool surface.
 
 ## Preview
 
