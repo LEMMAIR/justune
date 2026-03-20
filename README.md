@@ -1,8 +1,10 @@
 # justune
 
+[English](README.md)  [简体中文](README_CN.md)
+
 `justune` is a browser-hosted agent runtime for local code and file work. It keeps planning on the server and runs tools inside the user's browser workspace, so you can test client-side tool calling without giving the server direct access to the user's files.
 
-The app now consumes its reusable runtime surface through the local package-style entry `@justune/runtime`, backed by [`packages/justune-runtime`](/root/projects/justune/packages/justune-runtime). Legacy `lib/*` runtime paths now exist only as thin compatibility shims, so the package sources are the single implementation surface.
+The app now consumes its reusable runtime surface through the local package-style entry `@lemmair/justune-runtime`, backed by [`packages/justune-runtime`](/root/projects/justune/packages/justune-runtime). Legacy `lib/*` runtime paths now exist only as thin compatibility shims, so the package sources are the single implementation surface.
 
 ## Preview
 
@@ -67,7 +69,7 @@ sequenceDiagram
 
 ## How it works
 
-- The UI consumes a headless `JustuneRuntime` controller from `@justune/runtime`.
+- The UI consumes a headless `JustuneRuntime` controller from `@lemmair/justune-runtime`.
 - The server exposes two Node routes:
   - `POST /api/session` creates or restores a session.
   - `POST /api/justune/llm` validates the session, validates conversation tool names, clamps runtime constraints, and requests the next model turn.
@@ -193,7 +195,7 @@ To integrate another provider, replace the request and response mapping in `lib/
 
 ### 2. Change or extend the tool surface
 
-The local tool contract is defined in `@justune/runtime` and implemented in the package sources under [`packages/justune-runtime/src`](/root/projects/justune/packages/justune-runtime/src). The current tool names are:
+The local tool contract is defined in `@lemmair/justune-runtime` and implemented in the package sources under [`packages/justune-runtime/src`](/root/projects/justune/packages/justune-runtime/src). The current tool names are:
 
 - `bash`
 - `readFile`
@@ -213,7 +215,7 @@ To add a tool:
 
 ### 3. Embed the runtime or workbench in another product
 
-The intended public runtime entry point is `@justune/runtime`, with source in [`packages/justune-runtime/src/index.ts`](/root/projects/justune/packages/justune-runtime/src/index.ts). The demo UI entry point is [`components/justune-workbench.tsx`](/root/projects/justune/components/justune-workbench.tsx).
+The intended public runtime entry point is `@lemmair/justune-runtime`, with source in [`packages/justune-runtime/src/index.ts`](/root/projects/justune/packages/justune-runtime/src/index.ts). The demo UI entry point is [`components/justune-workbench.tsx`](/root/projects/justune/components/justune-workbench.tsx).
 
 You can integrate `justune` as:
 
@@ -257,8 +259,5 @@ npm run typecheck
 npm run build
 ```
 ## Links
-
-- [English](README.md)
-- [简体中文](README_CN.md)
 
 [just-bash](https://github.com/vercel-labs/just-bash)

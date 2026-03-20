@@ -1,1 +1,1 @@
-export * from "@justune/runtime";
+export { JustuneRuntime } from "@lemmair/justune-runtime";

@@ -1,16 +1,49 @@
 {
-  "name": "@justune/runtime",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@lemmair/justune-runtime",
+  "version": "0.1.1",
+  "description": "The runtime for Justune agents, providing safe browser sandboxing for tool execution.",
+  "author": "lemmair",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent",
+    "runtime",
+    "sandbox",
+    "browser",
+    "tool-use",
+    "llm",
+    "just-bash"
+  ],
   "type": "module",
   "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./agent-runner": "./src/agent-runner.ts",
-    "./client-identity": "./src/client-identity.ts",
-    "./default-workspace": "./src/default-workspace.ts",
-    "./justune-browser-sandbox-client": "./src/justune-browser-sandbox-client.ts",
-    "./protocol": "./src/protocol.ts",
-    "./runtime-constraints": "./src/runtime-constraints.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./worker": {
+      "types": "./dist/justune-browser-sandbox.worker.d.ts",
+      "import": "./dist/justune-browser-sandbox.worker.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts src/justune-browser-sandbox.worker.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts src/justune-browser-sandbox.worker.ts --format cjs,esm --watch --dts",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "diff": "^8.0.3",
+    "just-bash": "^2.11.6"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.1",
+    "typescript": "^5.9.3"
   }
 }

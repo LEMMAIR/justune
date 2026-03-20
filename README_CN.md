@@ -1,8 +1,10 @@
 # justune
 
+[English](README.md)  [简体中文](README_CN.md)
+
 `justune` 是一个运行在浏览器中的智能体运行时，用于本地代码和文件操作。它的规划逻辑在服务端执行，而工具操作则在用户的浏览器工作空间中运行——这样既能在不暴露用户文件的前提下测试客户端工具调用，又保证了数据安全。
 
-目前，应用通过本地包入口 `@justune/runtime` 消费可复用的运行时接口，底层实现来自 [`packages/justune-runtime`](/root/projects/justune/packages/justune-runtime)。原有的 `lib/*` 路径已退化为薄兼容层，包源码成为唯一的实现来源。
+目前，应用通过本地包入口 `@lemmair/justune-runtime` 消费可复用的运行时接口，底层实现来自 [`packages/justune-runtime`](/root/projects/justune/packages/justune-runtime)。原有的 `lib/*` 路径已退化为薄兼容层，包源码成为唯一的实现来源。
 
 ## 预览
 
@@ -67,7 +69,7 @@ sequenceDiagram
 
 ## 工作原理
 
-- UI 层通过 `@justune/runtime` 使用无头 `JustuneRuntime` 控制器
+- UI 层通过 `@lemmair/justune-runtime` 使用无头 `JustuneRuntime` 控制器
 - 服务端提供两个 Node 路由：
   - `POST /api/session`：创建或恢复会话
   - `POST /api/justune/llm`：验证会话、校验工具名称、限制运行时约束，请求下一轮模型响应
@@ -192,7 +194,7 @@ npm start
 
 ### 2. 扩展工具集
 
-本地工具契约定义在 `@justune/runtime`，实现在 [`packages/justune-runtime/src`](/root/projects/justune/packages/justune-runtime/src)。当前支持：
+本地工具契约定义在 `@lemmair/justune-runtime`，实现在 [`packages/justune-runtime/src`](/root/projects/justune/packages/justune-runtime/src)。当前支持：
 
 - `bash`
 - `readFile`
@@ -212,7 +214,7 @@ npm start
 
 ### 3. 嵌入其他产品
 
-公开运行时入口：`@justune/runtime`（源码：[`packages/justune-runtime/src/index.ts`](/root/projects/justune/packages/justune-runtime/src/index.ts)）
+公开运行时入口：`@lemmair/justune-runtime`（源码：[`packages/justune-runtime/src/index.ts`](/root/projects/justune/packages/justune-runtime/src/index.ts)）
 
 演示 UI 入口：[`components/justune-workbench.tsx`](/root/projects/justune/components/justune-workbench.tsx)
 
@@ -261,8 +263,5 @@ npm run build
 ```
 
 ## 链接
-
-- [English](README.md)
-- [简体中文](README_CN.md)
 
 [just-bash](https://github.com/vercel-labs/just-bash)

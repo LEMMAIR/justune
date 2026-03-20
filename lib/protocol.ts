@@ -1,1 +1,1 @@
-export * from "../packages/justune-runtime/src/protocol";
+export * from "@lemmair/justune-runtime";

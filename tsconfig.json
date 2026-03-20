@@ -23,10 +23,10 @@
       }
     ],
     "paths": {
-      "@justune/runtime": [
+      "@lemmair/justune-runtime": [
         "./packages/justune-runtime/src/index.ts"
       ],
-      "@justune/runtime/*": [
+      "@lemmair/justune-runtime/*": [
         "./packages/justune-runtime/src/*"
       ],
       "@/*": [

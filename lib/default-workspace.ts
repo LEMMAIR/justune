@@ -1,1 +1,1 @@
-export * from "../packages/justune-runtime/src/default-workspace";
+export * from "@lemmair/justune-runtime";

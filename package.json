@@ -1,18 +1,57 @@
 {
-  "name": "justune",
-  "version": "0.1.0",
-  "private": true,
-  "author": "lemmair",
+  "name": "@lemmair/justune",
+  "version": "0.1.1",
   "description": "Browser-hosted agent runtime demo for local bash and file tools.",
+  "keywords": [
+    "agent",
+    "runtime",
+    "sandbox",
+    "browser",
+    "tool-use",
+    "llm",
+    "justune",
+    "lemmair"
+  ],
+  "author": "lemmair",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemmair/justune.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "app",
+    "components",
+    "lib",
+    "index.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:lib": "tsup index.ts --format cjs,esm --dts --external react,react-dom,next,@lemmair/justune-runtime --tsconfig tsconfig.build.json",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
+    "@lemmair/justune-runtime": "^0.1.1",
     "diff": "^8.0.3",
     "just-bash": "^2.11.6",
     "next": "^16.1.6",
@@ -26,6 +65,7 @@
     "eslint": "^9.39.3",
     "eslint-config-next": "^16.1.6",
     "jsdom": "^27.0.1",
+    "tsup": "^8.4.1",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },

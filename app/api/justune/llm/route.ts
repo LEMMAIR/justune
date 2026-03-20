@@ -4,8 +4,8 @@ import {
   runLlmTurn,
   validateConversationMessages,
 } from "@/lib/llm";
-import type { LlmRequestBody } from "@justune/runtime";
-import { clampRuntimeConstraints } from "@justune/runtime/runtime-constraints";
+import type { LlmRequestBody, LlmResponseBody } from "@lemmair/justune-runtime";
+import { clampRuntimeConstraints } from "@lemmair/justune-runtime/runtime-constraints";
 import {
   readSessionSecretCookie,
   validateSameOriginRequest,

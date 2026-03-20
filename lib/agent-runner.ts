@@ -1,1 +1,1 @@
-export * from "../packages/justune-runtime/src/agent-runner";
+export * from "@lemmair/justune-runtime";

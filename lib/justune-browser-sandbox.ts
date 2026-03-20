@@ -1,1 +1,1 @@
-export * from "../packages/justune-runtime/src/justune-browser-sandbox";
+export * from "@lemmair/justune-runtime";

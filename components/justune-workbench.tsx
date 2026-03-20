@@ -7,19 +7,20 @@ import {
   type FileChange,
   createInitialJustuneRuntimeState,
   JustuneRuntime,
+  type JustuneRuntimeRunStatus,
   type JustuneRuntimeState,
-} from "@justune/runtime";
-import { MAX_RUN_STEPS, MAX_RUN_WALL_TIME_MS } from "@justune/runtime/agent-runner";
+} from "@lemmair/justune-runtime";
+import { MAX_RUN_STEPS, MAX_RUN_WALL_TIME_MS } from "@lemmair/justune-runtime/agent-runner";
 import {
   formatToolMessagePreview,
   summarizeTool,
-} from "@/lib/justune-browser-sandbox";
-import type { ConversationMessage, LlmResponseBody } from "@justune/runtime";
+} from "../lib/justune-browser-sandbox";
+import type { ConversationMessage, LlmResponseBody } from "@lemmair/justune-runtime";
 import {
   clearPersistedWorkbenchState,
   loadPersistedWorkbenchState,
   savePersistedWorkbenchState,
-} from "@/lib/workbench-persistence";
+} from "../lib/workbench-persistence";
 
 const STARTER_PROMPTS = [
   "Summarize the workspace and identify the files worth editing first.",

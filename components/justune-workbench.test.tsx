@@ -4,7 +4,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { FileChange } from "@/lib/justune-browser-sandbox";
-import type { LlmResponseBody, ToolCall, ToolMessage } from "@justune/runtime";
+import type { LlmResponseBody, ToolCall, ToolMessage } from "@lemmair/justune-runtime";
 
 (globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT =
   true;
@@ -26,13 +26,13 @@ const testState = vi.hoisted(() => ({
   }>,
 }));
 
-vi.mock("@justune/runtime/client-identity", () => ({
+vi.mock("@lemmair/justune-runtime/client-identity", () => ({
   getOrCreateClientId: () => "client_test",
 }));
 
 vi.mock("@/lib/workbench-persistence", () => testState.persistence);
 
-vi.mock("@justune/runtime/justune-browser-sandbox-client", () => {
+vi.mock("@lemmair/justune-runtime/justune-browser-sandbox-client", () => {
   class MockSandboxClient {
     private files: Record<string, string>;
     private changes: FileChange[] = [];

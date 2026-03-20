@@ -1,1 +1,1 @@
-export * from "../packages/justune-runtime/src/client-identity";
+export * from "@lemmair/justune-runtime";

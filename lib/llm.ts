@@ -13,7 +13,7 @@ import {
   type ToolInput,
   type ToolName,
   type WriteFileToolInput,
-} from "@/lib/protocol";
+} from "./protocol";
 
 const OPENAI_BASE_URL = "https://api.openai.com/v1";
 const MAX_TOOL_CALLS_PER_TURN = 4;
