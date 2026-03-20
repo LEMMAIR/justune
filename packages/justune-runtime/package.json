@@ -1,0 +1,16 @@
+{
+  "name": "@justune/runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./agent-runner": "./src/agent-runner.ts",
+    "./client-identity": "./src/client-identity.ts",
+    "./default-workspace": "./src/default-workspace.ts",
+    "./justune-browser-sandbox-client": "./src/justune-browser-sandbox-client.ts",
+    "./protocol": "./src/protocol.ts",
+    "./runtime-constraints": "./src/runtime-constraints.ts"
+  }
+}
